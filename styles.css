@@ -12,6 +12,8 @@
     width:370px;
     margin:5px;
     background-color: antiquewhite;
+    display:flex;
+    flex-direction: column;
 }
 
 .button-container {
