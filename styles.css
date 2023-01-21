@@ -1,0 +1,41 @@
+.container {
+    height:475px;
+    width:400px;
+    display:flex;
+    flex-direction:column;
+    background-color: rgb(235, 124, 124);
+    align-items:center;
+}
+
+.screen {
+    height:100px;
+    width:370px;
+    margin:5px;
+    background-color: antiquewhite;
+}
+
+.button-container {
+    display:flex;
+    flex-wrap:wrap;
+    height:325px;
+    justify-content:space-evenly;
+    gap:5px;
+}
+
+button {
+    background-color: antiquewhite;
+}
+
+.btn.firstrow {
+    width:185px;
+    justify-content:center;
+}
+
+.btn.data {
+    width:90px;
+    justify-content:center;
+}
+
+.btn.data.equal {
+    width:185px;
+}
