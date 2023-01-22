@@ -1,3 +1,10 @@
+const currentScreen=document.getElementById("currentScreen");
+const numberButtons=document.querySelectorAll(".number");
+const lastOperation=document.getElementById("lastOperation");
+const alloperators= document.querySelectorAll(".operator");
+document.getElementById("equals").addEventListener('click',evaluate);
+document.getElementById("clear").addEventListener('click',reset);
+document.getElementById("delete").addEventListener('click',deletefunc);
 
 function operate(operator,num1,num2) {
     num1=Number(num1)
@@ -17,25 +24,26 @@ function operate(operator,num1,num2) {
         }
     }
 
-//displaying the content of clisked buttons on the screen 
-const currentScreen=document.getElementById("currentScreen");
-const numberButtons=document.querySelectorAll(".number");
+
 numberButtons.forEach((button) => 
     button.addEventListener('click', () => 
     currentScreen.textContent+=button.textContent)
 )
 
-const lastOperation=document.getElementById("lastOperation");
-const alloperators= document.querySelectorAll(".operator");
+
 alloperators.forEach((button) => 
     button.addEventListener('click', () => {
+    if (currentScreen.innerHTML) {
     lastOperation.textContent=currentScreen.textContent+button.textContent;
     currentScreen.innerHTML="";}
+    else {
+      lastOperation.innerHTML=""
+      currentScreen.innerHTML="You have to enter data"
+    }}
     ))
 
-//evaluates the result when click to the equals button
-document.getElementById("equals").addEventListener('click',evaluate);
 function evaluate() {
+    if (lastOperation.textContent) {
     let lastOperationText=lastOperation.textContent;
     let firstnum = Number(lastOperationText.slice(0, lastOperationText.length - 1));
     let secondnum = Number(currentScreen.textContent);
@@ -44,16 +52,18 @@ function evaluate() {
     let operator =lastOperationText.slice(-1);
         currentScreen.innerHTML 
     let result=operate(operator,firstnum,secondnum);
-    currentScreen.textContent=result;
+    currentScreen.textContent=result;}
+    else {
+       lastOperation.innerHTML=""
+       currentScreen.innerHTML="You have to enter data"
+    }
 }
 
-document.getElementById("clear").addEventListener('click',reset);
 function reset() {
     currentScreen.innerHTML ="";
     lastOperation.innerHTML ="";
 }
 
-document.getElementById("delete").addEventListener('click',deletefunc);
 function deletefunc() {
     currentScreen.textContent=currentScreen.textContent.slice(0, currentScreen.textContent.length - 1);
 }
