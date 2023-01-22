@@ -35,10 +35,11 @@ alloperators.forEach((button) =>
     button.addEventListener('click', () => {
     if (currentScreen.innerHTML) {
     lastOperation.textContent=currentScreen.textContent+button.textContent;
-    currentScreen.innerHTML="";}
+    currentScreen.innerHTML="";
+}
     else {
       lastOperation.innerHTML=""
-      currentScreen.innerHTML="You have to enter data"
+      currentScreen.innerHTML=''
     }}
     ))
 
@@ -51,11 +52,11 @@ function evaluate() {
     currentScreen.innerHTML =""
     let operator =lastOperationText.slice(-1);
         currentScreen.innerHTML 
-    let result=operate(operator,firstnum,secondnum);
+    let result=Math.round(operate(operator,firstnum,secondnum)*10000000000)/10000000000;
     currentScreen.textContent=result;}
     else {
-       lastOperation.innerHTML=""
-       currentScreen.innerHTML="You have to enter data"
+       lastOperation.innerHTML="";
+       currentScreen.innerHTML='';
     }
 }
 
