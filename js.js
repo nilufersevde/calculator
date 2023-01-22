@@ -42,6 +42,7 @@ function evaluate() {
     lastOperation.textContent+=currentScreen.textContent;
     currentScreen.innerHTML =""
     let operator =lastOperationText.slice(-1);
+        currentScreen.innerHTML 
     let result=operate(operator,firstnum,secondnum);
     currentScreen.textContent=result;
 }
@@ -56,18 +57,3 @@ document.getElementById("delete").addEventListener('click',deletefunc);
 function deletefunc() {
     currentScreen.textContent=currentScreen.textContent.slice(0, currentScreen.textContent.length - 1);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
