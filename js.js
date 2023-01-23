@@ -5,6 +5,7 @@ const alloperators= document.querySelectorAll(".operator");
 document.getElementById("equals").addEventListener('click',evaluate);
 document.getElementById("clear").addEventListener('click',reset);
 document.getElementById("delete").addEventListener('click',deletefunc);
+document.getElementById("dot").addEventListener('click',makedecimal);
 
 function operate(operator,num1,num2) {
     num1=Number(num1)
@@ -67,4 +68,9 @@ function reset() {
 
 function deletefunc() {
     currentScreen.textContent=currentScreen.textContent.slice(0, currentScreen.textContent.length - 1);
+}
+
+function makedecimal() {
+    if (currentScreen.textContent.includes(".")) return
+    currentScreen.textContent+="."
 }
