@@ -2,24 +2,34 @@ body {
     background-color: rgb(215, 235, 250);
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
 .container {
     --box-shadow-color: rgb(77, 93, 97);
-    min-height:560px;
-    width:400px;
+    width:420px;
     display:flex;
     flex-direction:column;
     background-color: rgb(127, 197, 234);
     align-items:center;
-    position: absolute;
-    left:500px;
-    top: 100px;
     border-radius: 10px;
     padding: 10px;
     border: 2px solid rgb(132, 113, 174);
+    padding: 15px 20px 10px 20px;
 }
 
 .screen {
-    min-height:100px;
     width:370px;
     margin:5px;
     background-color: rgb(215, 235, 250);
@@ -28,11 +38,7 @@ body {
     text-align: right;
     padding: 10px;
     font-family: "Inconsolata", monospace;
-    font-size: 40px;
-    margin-bottom: 15px;
-    margin-top: 10px;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin: 0px 5px 5px 5px;
     border-radius: 10px;
     border: 2px solid rgb(132, 113, 174);
     word-wrap: break-word;
@@ -42,7 +48,6 @@ body {
 #lastOperation {
     height:40px;
     width:360px;
-    text-align: right;
     padding: 10px;
     font-family: "Inconsolata", monospace;
     font-size: 20px;
@@ -50,15 +55,15 @@ body {
 
 #currentScreen {
     min-height:60px;
+    font-size: 40px;
 }
 
 .button-container {
-    display:flex;
-    flex-wrap:wrap;
-    height:325px;
-    justify-content:space-evenly;
-    gap:10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
     font-family: "Inconsolata", monospace;
+    margin:10px
 }
 
 button {
@@ -71,9 +76,8 @@ button {
 }
 
 .btn.firstrow {
-    width:190px;
-    height: 70px;
-    justify-content:center;
+    grid-column: span 2;
+    min-height: 60px;
     background-color: rgb(194, 127, 179);
 }
 
@@ -84,12 +88,14 @@ button {
 }
 
 #equals {
-    background-color: rgb(127, 194, 159);
     background-color: rgb(194, 127, 179);
 }
 
+#equals:hover,#clear:hover,#delete:hover {
+    background-color: rgb(182, 109, 165);
+}
+
 button:hover {
-    transform: scale(1.1);
     background-color: rgb(128, 173, 177);
 }
 
