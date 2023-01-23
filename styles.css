@@ -46,7 +46,7 @@ body {
 }
 
 #lastOperation {
-    height:40px;
+    min-height:40px;
     width:360px;
     padding: 10px;
     font-family: "Inconsolata", monospace;
