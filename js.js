@@ -34,7 +34,12 @@ numberButtons.forEach((button) =>
 
 alloperators.forEach((button) => 
     button.addEventListener('click', () => {
-    if (currentScreen.innerHTML) {
+    if (lastOperation.innerHTML!="") {
+        evaluate()
+        lastOperation.textContent=currentScreen.textContent+button.textContent;
+        currentScreen.innerHTML="";
+    }
+    else if (currentScreen.innerHTML) {
     lastOperation.textContent=currentScreen.textContent+button.textContent;
     currentScreen.innerHTML="";
 }
@@ -57,7 +62,7 @@ function evaluate() {
     currentScreen.textContent=result;}
     else {
        lastOperation.innerHTML="";
-       currentScreen.innerHTML='';
+       currentScreen.innerHTML="";
     }
 }
 
